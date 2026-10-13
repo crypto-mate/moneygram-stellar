@@ -1,0 +1,53 @@
+{
+  "name": "@cryptomate/moneygram-stellar",
+  "version": "1.0.0",
+  "description": "Unofficial reference client for MoneyGram cash-in and cash-out on Stellar (SEP-10, SEP-24, SEP-9, Horizon)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crypto-mate/moneygram-stellar.git"
+  },
+  "homepage": "https://github.com/crypto-mate/moneygram-stellar#readme",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "VERIFIED.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "tsc -p tsconfig.check.json",
+    "smoke": "node -e \"import('./dist/index.js').then(m => console.log('dist loads, ' + Object.keys(m).length + ' exports'))\""
+  },
+  "keywords": [
+    "stellar",
+    "moneygram",
+    "sep-24",
+    "sep-10",
+    "anchor"
+  ],
+  "dependencies": {
+    "@stellar/stellar-sdk": "17.0.1",
+    "@stellar/typescript-wallet-sdk": "^5.0.0",
+    "axios": "1.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
